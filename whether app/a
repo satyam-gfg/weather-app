@@ -1,0 +1,16 @@
+    cloud_pct.innerHtml=response.cloud_pct;
+    temp.innerHtml=response.temp;
+    feels_like.innerHtml=response.feels_like;
+    humidity.innerHtml=response.humidity;
+    min_temp.innerHtml=response.min_temp;
+    max_temp.innerHtml=response.max_temp;
+    wind_speed.innerHtml=response.wind_speed;
+    wind_degrees.innerHtml=response.wind_degrees;
+    sunrise.innerHtml=response.sunrise;
+    sunset.innerHtml=response.sunrise;
+
+    (async()=>{
+        try {
+            const response = await 
+            catch (error) {
+                console.error(error);

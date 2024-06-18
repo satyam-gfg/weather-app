@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather app</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Weather App</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
+                <ul class="dropdown-menu">Some famous cities
+                  <li><a class="dropdown-item" href="#">Greater noida</a></li>
+                  <li><a class="dropdown-item" href="#">Mumbai</a></li>
+                  <li><a class="dropdown-item" href="#">Lucknow</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input id="city" class="form-control me-2" type="search"  placeholder="Search" aria-label="Search">
+              <button type="submit" class="btn btn-info" id="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div class="container">
+        <h1 class="my-4 text-center">Weather for <span id="cityName"></span></h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              <div class="col">
+                <div class="card mb-4 rounded-3 ">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal" >Temperatures </i></h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-thermometer-sun" viewBox="0 0 16 16">
+                      <path d="M5 12.5a1.5 1.5 0 1 1-2-1.415V2.5a.5.5 0 0 1 1 0v8.585A1.5 1.5 0 0 1 5 12.5"/>
+                      <path d="M1 2.5a2.5 2.5 0 0 1 5 0v7.55a3.5 3.5 0 1 1-5 0zM3.5 1A1.5 1.5 0 0 0 2 2.5v7.987l-.167.15a2.5 2.5 0 1 0 3.333 0L5 10.486V2.5A1.5 1.5 0 0 0 3.5 1m5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5m4.243 1.757a.5.5 0 0 1 0 .707l-.707.708a.5.5 0 1 1-.708-.708l.708-.707a.5.5 0 0 1 .707 0M8 5.5a.5.5 0 0 1 .5-.5 3 3 0 1 1 0 6 .5.5 0 0 1 0-1 2 2 0 0 0 0-4 .5.5 0 0 1-.5-.5M12.5 8a.5.5 0 0 1 .5-.5h1a.5.5 0 1 1 0 1h-1a.5.5 0 0 1-.5-.5m-1.172 2.828a.5.5 0 0 1 .708 0l.707.708a.5.5 0 0 1-.707.707l-.708-.707a.5.5 0 0 1 0-.708M8.5 12a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-1 0v-1a.5.5 0 0 1 .5-.5"/>
+                    </svg>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title "></h1>
+                    <ul class="list-unstyled mt-3 mb-4"></ul>
+                    <th>
+                      <li>Temperature is <span id="temp"></span></li>
+                      <li>Min Temperature is <span id="min_temp"></span></li>
+                      <li>Max Temperature is <span id="max_temp"></span></li>
+                    </th>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg-primary"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal">Party clouds</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clouds-fill" viewBox="0 0 16 16">
+                      <path d="M11.473 9a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 14h8.5a2.5 2.5 0 1 0-.027-5"/>
+                      <path d="M14.544 9.772a3.5 3.5 0 0 0-2.225-1.676 5.5 5.5 0 0 0-6.337-4.002 4.002 4.002 0 0 1 7.392.91 2.5 2.5 0 0 1 1.17 4.769z"/>
+                    </svg>
+                  </div>
+                  <div class="card-body">
+                    <h3 class="card-title "></h3>
+                    <ul class="list-unstyled mt-3 mb-4"></ul>
+                      <th>
+                      <li>Cloud_pct is <span id="cloud_pct"></span></li>
+                      <li>Humidity is <span id="humidity"></span></li>
+                      <li>Wind_speed is <span id="wind_speed"></span></li>
+                      </th>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary"></button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm ">
+                  <div class="card-header py-3 ">
+                    <h4 class="my-0 fw-normal">Overview</h4>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-sun-fill" viewBox="0 0 16 16">
+                      <path d="M11.473 11a4.5 4.5 0 0 0-8.72-.99A3 3 0 0 0 3 16h8.5a2.5 2.5 0 0 0 0-5z"/>
+                      <path d="M10.5 1.5a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0zm3.743 1.964a.5.5 0 1 0-.707-.707l-.708.707a.5.5 0 0 0 .708.708zm-7.779-.707a.5.5 0 0 0-.707.707l.707.708a.5.5 0 1 0 .708-.708zm1.734 3.374a2 2 0 1 1 3.296 2.198q.3.423.516.898a3 3 0 1 0-4.84-3.225q.529.017 1.028.129m4.484 4.074c.6.215 1.125.59 1.522 1.072a.5.5 0 0 0 .039-.742l-.707-.707a.5.5 0 0 0-.854.377M14.5 6.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                  </div>
+                  <div class="card-body">
+                    <h1 class="card-title "></h1>
+                    <ul class="list-unstyled mt-3 mb-4">
+                      <th>
+                        <li>Feels_like <span id="feels_like"></span></li>
+                      <li>Wind_degree is <span id="wind_degrees"></span></li>
+                      <li>Sunrise is <span id="sunrise"></span></li>
+                      </th>
+                    </ul>
+                    <button type="button" class="w-100 btn btn-lg btn-primary"></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+        
+            <h2 class="display-6 text-center mb-4">Weather of other days</h2>
+        
+            <div class="table-responsive">
+              <table class="table text-center">
+                <thead>
+                  <tr>
+                    <th style="width: 34%;"></th>
+                        <th style="width: 22%;">Cloud_pct<th>
+                        <th style="width: 22%;">Feels_like<th> 
+                        <th style="width: 22%;">Humidity<th>
+                        <th style="width: 22%;">Min_temp<th>
+                        <th style="width: 22%;">Max_temp<th>
+                        <th style="width: 22%;">Wind_speed<th>
+                        <th style="width: 22%;">Wind_degrees<th>
+                        <th style="width: 22%;">Sunrise<th>
+                        <th style="width: 22%;">Sunset<th>   
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="text-start">monday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Tuesday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                  </tr>
+                
+        
+                
+                  <tr>
+                    <th scope="row" class="text-start">Wednesday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td> 
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Thursday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <tr>
+                      <th scope="row" class="text-start">Friday</th>
+                      <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                      </tr>
+                      <tr>
+                    <th scope="row" class="text-start">Saturday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="text-start">Sunday</th>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                    <td>2</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </main>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>  
+</body>
+
+</html>
